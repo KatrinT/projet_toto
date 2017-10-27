@@ -1,0 +1,14 @@
+{
+    "name": "etudiant/projet_toto",
+    "description": "Gestion des etudiants de sessions de formation wf3",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Catherine",
+            "email": "tritz.catherine@gmail.com"
+        }
+    ],
+    "require": {
+        "social-links/social-links": "^1.13"
+    }
+}

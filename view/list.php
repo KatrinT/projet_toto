@@ -17,26 +17,12 @@
 
       <?php foreach ($resList as $student):?>
     <tr>
-
-      <td>
-        <?= $student['stu_id']?>
-      </td>
-      <td>
-        <?= $student['stu_lastname']?>
-      </td>
-      <td>
-        <?= $student['stu_firstname']?>
-      </td>
-      <td>
-        <?= $student['stu_birthdate']?>
-      </td>
-      <td>
-        <?= $student['stu_email']?>
-      </td>
-      <td>
-        <a class="btn btn-primary" href="student.php" role="Lien">Link</a>
-      </td>
-
+      <td><?= $student['stu_id']?></td>
+      <td><?= $student['stu_lastname']?></td>
+      <td><?= $student['stu_firstname']?></td>
+      <td><?= $student['stu_birthdate']?></td>
+      <td><?= $student['stu_email']?></td>
+      <td><a class="btn btn-primary" href="student.php?id=<?=$student['stu_id']?>" role="Lien">Link</a></td>
     </tr>
 <?php endforeach; ?>
 
