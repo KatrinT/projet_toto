@@ -39,13 +39,14 @@ if (!empty($search)){
 			OR cit_name LIKE :search
 			ORDER BY stu_lastname, stu_firstname, stu_email, cit_name
 	';
-	//nombre de recherche
-			$nbreRecherche = sum($sql);
-			echo 'il y a '. $nbreRecherche .'pour la recherche '.$search;
 
-			$pdoStatement = $pdo->prepare($Sql);
+			$pdoStatement = $pdo->prepare($sql);
 			$pdoStatement->bindValue(':search', '%'.$search.'%');
 			$retour = $pdoStatement->execute();
+
+			//nombre de recherche
+			$nbreRecherche = $pdoStatement-> rowCount();
+			echo 'il y a '. $nbreRecherche .'pour la recherche '.$search;
 }
 
 
