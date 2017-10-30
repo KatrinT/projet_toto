@@ -18,4 +18,11 @@
       <a class="navbar-brand" href="index.php">Sessions</a>
       <a class="navbar-brand" href="list.php">Tous les étudiants</a>
       <a class="navbar-brand" href="add.php">Ajouter un étudiant</a>
+
+      <form class="form-inline my-2 my-lg-0" action="list.php" method="get">
+
+      <input class="form-control mr-sm-2" name="recherche" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" href="list.php"> Search</button>
+
+    </form>
     </nav>

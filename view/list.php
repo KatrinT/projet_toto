@@ -2,7 +2,6 @@
 <ul>
 <table class="table">
   <thead>
-
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Last Name</th>
@@ -23,11 +22,21 @@
       <td><?= $student['stu_birthdate']?></td>
       <td><?= $student['stu_email']?></td>
       <td><a class="btn btn-primary" href="student.php?id=<?=$student['stu_id']?>" role="Lien">Link</a></td>
+
     </tr>
 <?php endforeach; ?>
+
 
   </tbody>
 </table>
 
-</table>
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+        <li class="page-item"><a class="page-link" href="list.php?page=<?=$page-1?>">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="list.php?page=<?=$page+1?>">Next></a></li>
+
+  </ul>
+</nav>
 </ul>
+
+<?php

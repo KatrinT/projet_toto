@@ -6,9 +6,9 @@ require __DIR__.'/../inc/config.php';
 <?php
 $sql = "SELECT stu_id, stu_lastname,stu_firstname, stu_birthdate, stu_email, cit_name, stu_friendliness, ses_number, tra_name
 FROM student
-INNER JOIN city ON student.city_cit_id = city.cit_id
-INNER JOIN session ON student.session_ses_id = session.ses_id
-INNER JOIN training ON session.training_tra_id = training.tra_id
+LEFT JOIN city ON student.city_cit_id = city.cit_id
+LEFT JOIN session ON student.session_ses_id = session.ses_id
+LEFT JOIN training ON session.training_tra_id = training.tra_id
 WHERE stu_id = {$_GET['id']}" ;
 //echo $sql
 ;

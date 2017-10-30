@@ -1,62 +1,6 @@
 <h2>Ajouter un étudiant</h2>
-<?php
-// Initialisations
-$lastnameToto = '';
-$firstnameToto = '';
-// Si formulaire soumis
-if (!empty($_POST)) {
-	// Je récupère les données
-	$lastnameToto = isset($_POST['lastnameToto']) ? $_POST['lastnameToto'] : '';
-	$firstnameToto = isset($_POST['firstnameToto']) ? $_POST['firstnameToto'] : '';
-	// Traiter les données
-	$lastnameToto = strtoupper(trim(strip_tags($lastnameToto)));
-	$firstnameToto = ucfirst(trim(strip_tags($firstnameToto)));
-	// Validation des données
-	$formOk = true;
-	if (empty($lastnameToto)) {
-		echo 'Nom vide<br>';
-		$formOk = false;
-	}
-	else if (strlen($lastnameToto) < 3) {
-		echo 'Nom incorrect<br>';
-		$formOk = false;
-	}
-	if (empty($firstnameToto)) {
-		echo 'Prénom vide<br>';
-		$formOk = false;
-	}
-	else if (strlen($firstnameToto) < 3) {
-		echo 'Prénom incorrect<br>';
-		$formOk = false;
-	}
 
-	// Si aucune erreur
-	if ($formOk) {
-        $sql = 'INSERT INTO student (stu_lastname, stu_firstname)
-        VALUES (:lastnameToto, :firstnameToto)';
-        // Je prépare ma requête, mais ne l'exécute pas encore
-        $pdoStatement = $pdo->prepare($sql);
-        // Je donne des valeurs à chaque "jeton" ou "token" (=> :jeton)
-        $pdoStatement->bindValue(':firstnameToto', $_POST['firstnameToto'], PDO::PARAM_INT);
-        $pdoStatement->bindValue(':lastnameToto', $_POST['lastnameToto'], PDO::PARAM_INT);
-        // J'exécute la requête préparée (!= PDO::exec())
-        $retour = $pdoStatement->execute();
 
-        $lastId = $pdo->lastInsertId();
-
-        // Si erreur
-        if ($retour === false) {
-        	// sur $pdoStatement car c'est une requête préparée
-        	print_r($pdoStatement->errorInfo());
-        	exit;
-        }
-
-        header("Location: student.php?id={$lastId}");
-        exit;
-    }
-
-}
-?>
 <form action="" method="post">
   <div class="form-group">
     <label for="inputAddress">Nom</label>
@@ -65,6 +9,45 @@ if (!empty($_POST)) {
   <div class="form-group">
     <label for="inputAddress2">Prenom</label>
     <input type="text" name="firstnameToto" class="form-control" id="inputAddress2" placeholder="Prenom">
+  </div>
+  <div class="form-group">
+    <label for="inputAddress">Date d'anniversaire : au format YYYY-MM-DD (2017-10-30)</label>
+    <input type="datetime" name="dateBToto" class="form-control" id="inputAddress" placeholder="Date">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Email address</label>
+    <input type="email" name="emailToto" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect1">Symathie</label>
+    <select class="form-control" name="sympathieToto" id="exampleFormControlSelect1">
+      <option>1</option>
+	  <option>2</option>
+	  <option>3</option>
+	  <option>4</option>
+	  <option>5</option>
+
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect2">Numero de session</label>
+    <select multiple class="form-control" name="sessionToto" id="exampleFormControlSelect2">
+
+	<!-- parcourrir tableau via une boucle - attention un tableau dans un tableau-->
+		<?php foreach ($sessionList as $ses):?>
+	  <option value="<?= $ses['ses_id'] ?>"><?= $ses['ses_number'] ?></option>
+  		<?php endforeach; ?>
+
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlSelect2">Ville</label>
+    <select multiple class="form-control" name="villeToto" id="exampleFormControlSelect2">
+		<?php foreach ($cityList as $cit):?>
+      <option value="<?= $cit['cit_id'] ?>"><?= $cit['cit_name'] ?></option>
+		<?php endforeach; ?>
+    </select>
   </div>
   <button type="submit" class="btn btn-primary">Sign in</button>
 </form>
