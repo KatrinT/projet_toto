@@ -46,18 +46,18 @@ if (!empty($search)){
 
 			//nombre de recherche
 			$nbreRecherche = $pdoStatement-> rowCount();
-			echo 'il y a '. $nbreRecherche .'pour la recherche '.$search;
-}
+			echo 'il y a '. $nbreRecherche .' pour la recherche '.$search;
+		}
 
 
 //sinon on prend tous les etudiants et on fait la pagination
-else{
+	else{
 	//si concatenation refermer les guillemets avant le .
 	$sql = 'SELECT * FROM student LIMIT 5 OFFSET ' .$offset;
 	//executer la requete
 	$pdoStatement = $pdo->query($sql);
 	//echo $sql;
-}
+	}
 
 
 // Si erreur

@@ -18,6 +18,7 @@
       <a class="navbar-brand" href="index.php">Sessions</a>
       <a class="navbar-brand" href="list.php">Tous les étudiants</a>
       <a class="navbar-brand" href="add.php">Ajouter un étudiant</a>
+      <a class="navbar-brand" href="upload.php">Telecharger un fichier</a>
 
       <form class="form-inline my-2 my-lg-0" action="list.php" method="get">
 
