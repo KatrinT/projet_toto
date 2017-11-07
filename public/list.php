@@ -1,6 +1,5 @@
-<pre>
 <?php
-
+session_start();
 require __DIR__.'/../inc/config.php';
 
 $studentList = array();
@@ -76,4 +75,3 @@ require_once __DIR__.'/../view/list.php';
 require_once __DIR__.'/../view/footer.php';
 
 ?>
-</pre>

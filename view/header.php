@@ -11,6 +11,7 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css">
     </head>
+
     <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -19,6 +20,8 @@
       <a class="navbar-brand" href="list.php">Tous les étudiants</a>
       <a class="navbar-brand" href="add.php">Ajouter un étudiant</a>
       <a class="navbar-brand" href="upload.php">Telecharger un fichier</a>
+      <a class="navbar-brand" href="signup.php">Sign up</a>
+      <a class="navbar-brand" href="signin.php">Sign in</a>
 
       <form class="form-inline my-2 my-lg-0" action="list.php" method="get">
 

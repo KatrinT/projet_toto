@@ -1,9 +1,6 @@
 <?php
+session_start();
 require __DIR__.'/../inc/config.php';
-
-
-
-
 
 
 //a la fin, j'affiche

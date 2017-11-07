@@ -1,5 +1,6 @@
-<pre>
 <?php
+session_start();
+
 require __DIR__.'/../inc/config.php';
 
 // Initialisations
@@ -117,5 +118,3 @@ require_once __DIR__.'/../view/add.php';
 require_once __DIR__.'/../view/footer.php';
 
 ?>
-
-</pre>
