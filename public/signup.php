@@ -56,14 +56,15 @@ if (!empty($_POST)) {
 			echo 'mails existe déja';
 		} else {
 			$passCrypt= password_hash($passwordConnection, PASSWORD_BCRYPT);
-	        $sql = 'INSERT INTO users (usr_email, usr_password)
-	        VALUES (:nomConnection, :passwordConnection)';
+	        $sql = 'INSERT INTO users (usr_email, usr_password, usr_role)
+	        VALUES (:nomConnection, :passwordConnection, :userole)';
 	        //attention si on fait appel a plusieurs table il faut utiliser les foreign key (ci-dessous)
 	        // Je prépare ma requête, mais ne l'exécute pas encore
 	        $pdoStatement = $pdo->prepare($sql);
 	        // Je donne des valeurs à chaque "jeton" ou "token" (=> :jeton)
 	        $pdoStatement->bindValue(':nomConnection', $nomConnection, PDO::PARAM_STR);
 	        $pdoStatement->bindValue(':passwordConnection', $passCrypt, PDO::PARAM_INT);
+			$pdoStatement->bindValue(':userole', 'user', PDO::PARAM_INT);
 	        // J'exécute la requête préparée
 	        $creationCompte = $pdoStatement->execute();
 			echo 'Votre compte a bien été créé! <br>';

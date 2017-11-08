@@ -2,6 +2,8 @@
 session_start();
 require __DIR__.'/../inc/config.php';
 
+//print_r($_SESSION);
+
 
 //a la fin, j'affiche
 

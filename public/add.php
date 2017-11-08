@@ -3,6 +3,15 @@ session_start();
 
 require __DIR__.'/../inc/config.php';
 
+if(isset($_SESSION['id']) && $_SESSION['role'] === 'user'){
+	header("Location: 403.php");
+	exit;
+
+} else if (!isset($_SESSION['id'])){
+
+}
+
+
 // Initialisations
 $lastnameToto = '';
 $firstnameToto = '';
@@ -14,7 +23,7 @@ $villeToto ='';
 
 // Si formulaire soumis
 if (!empty($_POST)) {
-	print_r($_POST);
+	//print_r($_POST);
 	// Je récupère les données
 	$lastnameToto = isset($_POST['lastnameToto']) ? $_POST['lastnameToto'] : '';
 	$firstnameToto = isset($_POST['firstnameToto']) ? $_POST['firstnameToto'] : '';
@@ -82,7 +91,7 @@ if (!empty($_POST)) {
         // Si erreur
         if ($retour === false) {
         	// sur $pdoStatement car c'est une requête préparée
-        	print_r($pdoStatement->errorInfo());
+        	//print_r($pdoStatement->errorInfo());
         	exit;
         }
         header("Location: student.php?id={$lastId}");
@@ -109,7 +118,7 @@ if ($pdoStatement === false) {
 	exit;
 }
 $sessionList = $pdoStatement->fetchAll(PDO::FETCH_ASSOC);
-print_r($sessionList);
+//print_r($sessionList);
 
 
 

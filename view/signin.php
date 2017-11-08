@@ -10,4 +10,6 @@
     <input type="password" name="passwordConnection" class="form-control" id="inputAddress2" placeholder="Password">
   </div>
   <button type="submit" class="btn btn-primary">Sign in</button>
+
 </form>
+<br>
