@@ -1,6 +1,8 @@
 <h2>Informations par Etudiant</h2>
 
-<div class="card">
+<div id="studentContent"></div>
+
+<!-- <div class="card">
   <div class="card-header">
       <h4 class="card-title"><?= $infoEtu['stu_lastname']?></h4>
   </div>
@@ -18,4 +20,29 @@
     <li>Nom de la formation: <?= $infoEtu['tra_name']?></li>
     </ul>
   </div>
-</div>
+</div> -->
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+<script type="text/javascript">
+
+
+    jQuery.ajax({
+        url : 'http://localhost/projet_toto/public/ajax/student.php',
+        method : 'POST',
+        dataType : 'text',
+        data : {
+            id : <?php $_GET['id']?>
+        }
+    }).done(function(response) {
+        $('#studentContent').html(response)
+    }).fail(function() {
+        alert( "bad news... ERROR !" );
+        console.log ('bad news... ERROR !')
+    }).always(function() {
+        alert( "Ajax terminée" );
+        console.log ('Ajax terminée')
+    });
+});
+
+</script>
