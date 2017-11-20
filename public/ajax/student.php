@@ -25,6 +25,7 @@ if ($pdoStatement === false) {
 $infoEtu = $pdoStatement->fetch(PDO::FETCH_ASSOC);
 //print_r($infoEtu);
 
+?>
 
 <div class="card">
   <div class="card-header">
